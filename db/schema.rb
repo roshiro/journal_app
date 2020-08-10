@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_201350) do
+ActiveRecord::Schema.define(version: 2020_08_10_202910) do
 
-  create_table "notes", force: :cascade do |t|
+  create_table "entries", force: :cascade do |t|
     t.string "title"
+    t.string "symbol"
     t.text "content"
+    t.datetime "open_date"
+    t.datetime "close_date"
+    t.decimal "result"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

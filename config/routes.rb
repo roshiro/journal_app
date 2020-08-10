@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root  to: 'notes#index'
+  root  to: 'entries#index'
 
   devise_for :users, path: 'auth'
 
   resources :users
-  resources :notes
+  resources :entries
 end
