@@ -23,9 +23,9 @@
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
 
+  </div>
+  <trix-editor input="content"></trix-editor>
   <div class="field">
     <%= form.label :open_date %>
     <%= form.datetime_select :open_date %>
