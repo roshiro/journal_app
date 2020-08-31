@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 2020_08_15_124250) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "instrument_id"
     t.integer "setup_id", null: false
+    t.integer "strategy_id", null: false
     t.index ["setup_id"], name: "index_entries_on_setup_id"
+    t.index ["strategy_id"], name: "index_entries_on_strategy_id"
   end
 
   create_table "instruments", force: :cascade do |t|
@@ -64,4 +66,5 @@ ActiveRecord::Schema.define(version: 2020_08_15_124250) do
   end
 
   add_foreign_key "entries", "setups"
+  add_foreign_key "entries", "strategies"
 end

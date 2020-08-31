@@ -1,5 +1,7 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :load_strategies, only: [:new, :edit]
+  before_action :load_setups, only: [:new, :edit]
 
   # GET /entries
   # GET /entries.json
@@ -25,7 +27,6 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     @entry = Entry.new(entry_params)
-
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
@@ -62,6 +63,14 @@ class EntriesController < ApplicationController
   end
 
   private
+    def load_setups
+      @setups = Setup.all
+    end
+
+    def load_strategies
+      @strategies = Strategy.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])
@@ -69,6 +78,6 @@ class EntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entry_params
-      params.require(:entry).permit(:title, :symbol, :content, :open_date, :close_date, :setup_id)
+      params.require(:entry).permit(:title, :symbol, :content, :open_date, :close_date, :setup_id, :strategy_id, :risk_in_amount)
     end
 end

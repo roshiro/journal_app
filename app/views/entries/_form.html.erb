@@ -37,8 +37,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :strategy_id %>
+    <%= select_tag "entry[strategy_id]", options_from_collection_for_select(@strategies, "id", "name") %>
+  </div>
+
+  <div class="field">
     <%= form.label :setup_id %>
-    <%= form.text_field :setup_id %>
+    <%= select_tag "entry[setup_id]", options_from_collection_for_select(@setups, "id", "name") %>
   </div>
 
   <div class="field">
