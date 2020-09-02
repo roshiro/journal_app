@@ -12,13 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
     <%= form.label :symbol %>
-    <%= form.text_field :symbol %>
+    <%= select_tag "symbol", options_from_collection_for_select(@instruments, "id", "name") %>
   </div>
 
   <div class="field">

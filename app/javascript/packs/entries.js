@@ -1,1 +1,2 @@
 require('trix')
+require('flatpickr')

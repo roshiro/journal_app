@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
   before_action :load_strategies, only: [:new, :edit]
   before_action :load_setups, only: [:new, :edit]
+  before_action :load_symbols, only: [:new, :edit]
 
   # GET /entries
   # GET /entries.json
@@ -65,6 +66,10 @@ class EntriesController < ApplicationController
   private
     def load_setups
       @setups = Setup.all
+    end
+
+    def load_symbols
+      @instruments = Instrument.all
     end
 
     def load_strategies
