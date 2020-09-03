@@ -1,52 +1,55 @@
-<%= form_with(model: entry, local: true) do |form| %>
-  <% if entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+<div data-controller='entry'>
+  <%= form_with(model: entry, local: true) do |form| %>
+    <% if entry.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
 
-      <ul>
-        <% entry.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% entry.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :instrument_id %>
+      <%= select_tag "entry[instrument_id]", options_from_collection_for_select(@instruments, "id", "name") %>
+    </div>
+
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.hidden_field :content, id: "entry-content" %>
+      <trix-editor input="entry-content"></trix-editor>
+    </div>
+
+    <div class="field">
+      <%= form.label :open_date %>
+      <%= form.text_field :open_date, class: 'date-field' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :close_date %>
+      <%= form.text_field :close_date, class: 'date-field' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :strategy_id %>
+      <%= select_tag "entry[strategy_id]", options_from_collection_for_select(@strategies, "id", "name") %>
+    </div>
+
+    <div class="field">
+      <%= form.label :setup_id %>
+      <%= select_tag "entry[setup_id]", options_from_collection_for_select(@setups, "id", "name") %>
+    </div>
+
+    <div class="field">
+      <%= form.label :risk_in_amount %>
+      <%= form.text_field :risk_in_amount %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :instrument_id %>
-    <%= select_tag "entry[instrument_id]", options_from_collection_for_select(@instruments, "id", "name") %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-
-  </div>
-  <trix-editor input="content"></trix-editor>
-  <div class="field">
-    <%= form.label :open_date %>
-    <%= form.datetime_select :open_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :close_date %>
-    <%= form.datetime_select :close_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :strategy_id %>
-    <%= select_tag "entry[strategy_id]", options_from_collection_for_select(@strategies, "id", "name") %>
-  </div>
-
-  <div class="field">
-    <%= form.label :setup_id %>
-    <%= select_tag "entry[setup_id]", options_from_collection_for_select(@setups, "id", "name") %>
-  </div>
-
-  <div class="field">
-    <%= form.label :risk_in_amount %>
-    <%= form.text_field :risk_in_amount %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
