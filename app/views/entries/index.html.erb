@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Symbol</th>
+      <th>Instrument</th>
       <th>Open date</th>
       <th>Close date</th>
       <th colspan="3"></th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
-        <td><%= entry.symbol %></td>
+        <td><%= entry.instrument.name %></td>
         <td><%= entry.open_date %></td>
         <td><%= entry.close_date %></td>
         <td><%= link_to 'Show', entry %></td>

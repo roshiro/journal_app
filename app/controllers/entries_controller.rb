@@ -1,8 +1,8 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
-  before_action :load_strategies, only: [:new, :edit]
-  before_action :load_setups, only: [:new, :edit]
-  before_action :load_symbols, only: [:new, :edit]
+  before_action :load_strategies, only: [:new, :edit, :create]
+  before_action :load_setups, only: [:new, :edit, :create]
+  before_action :load_symbols, only: [:new, :edit, :create]
 
   # GET /entries
   # GET /entries.json
@@ -27,7 +27,8 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    @entry = Entry.new(entry_params)
+    debugger
+    @entry = Entry.create(entry_params)
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
@@ -83,6 +84,6 @@ class EntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entry_params
-      params.require(:entry).permit(:title, :symbol, :content, :open_date, :close_date, :setup_id, :strategy_id, :risk_in_amount)
+      params.require(:entry).permit(:title, :instrument_id, :content, :open_date, :close_date, :setup_id, :strategy_id, :risk_in_amount)
     end
 end
