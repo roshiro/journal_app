@@ -27,7 +27,6 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    debugger
     @entry = Entry.create(entry_params)
     respond_to do |format|
       if @entry.save

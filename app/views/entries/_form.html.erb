@@ -14,7 +14,7 @@
 
     <div class="field">
       <%= form.label :instrument_id %>
-      <%= select_tag "entry[instrument_id]", options_from_collection_for_select(@instruments, "id", "name", entry.instrument_id) %>
+      <%= select_tag "entry[instrument_id]", options_from_collection_for_select(@instruments, "id", "name", entry.instrument_id), class: 'entry-choices' %>
     </div>
 
     <div class="field">

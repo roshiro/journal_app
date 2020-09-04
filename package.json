@@ -7,6 +7,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.5.2",
+    "choices.js": "^9.0.1",
     "flatpickr": "^4.6.6",
     "stimulus": "^1.1.1",
     "trix": "^1.2.4",
