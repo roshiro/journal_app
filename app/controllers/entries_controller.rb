@@ -8,6 +8,8 @@ class EntriesController < ApplicationController
   # GET /entries.json
   def index
     @entries = Entry.all
+    @open_entries = Entry.where(close_date: nil)
+    @closed_entries = Entry.where.not(close_date: nil)
   end
 
   # GET /entries/1
