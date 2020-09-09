@@ -1,7 +1,5 @@
 require "test_helper"
 
-class EntryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+describe Entry do
+  should belong_to(:instrument)
 end
