@@ -1,18 +1,21 @@
-<h2>Open Trades</h2>
-
-<div class="row">
+<h4>Open Trades</h4>
+<%= link_to 'New Entry', new_entry_path %>
+<hr>
+<div class="row row-cols-3 row-cols-md-3">
   <% @open_entries.each do |entry| %>
-    <div class="card mb-3 mr-3" style="min-width: 540px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="..." class="card-img" alt="...">
+    <div class="col mb-4">
+      <div class="card">
+        <%= link_to entry_path(entry) do %>
+          <img src="<%= entry.image_urls_extracted_from_content&.first %>" class="card-img">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= entry.instrument.name %></h5>
+          <p class="card-text">Entry Date: <%= entry.open_date %></p>
+          <p class="card-text">Strategy: <%= entry.strategy.name %></p>
+          <p class="card-text">Entry Type: <%= entry.setup.name %></p>
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to entry.instrument.name, entry_path(entry) %></h5>
-            <p class="card-text"><%= entry.open_date %></p>
-            <p class="card-text"><small class="text-muted">Last updated . mins ago</small></p>
-          </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated at <%= entry.updated_at %></small>
         </div>
       </div>
     </div>
@@ -21,4 +24,26 @@
 
 <br>
 
-<%= link_to 'New Entry', new_entry_path %>
+<h4>Closed Trades</h4>
+<hr>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Open Date</th>
+      <th scope="col">Close Date</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @closed_entries.each do |entry| %>
+      <tr>
+        <th scope="row"><%= entry.instrument.name %></th>
+        <td><%= entry.open_date %></td>
+        <td><%= entry.close_date %></td>
+        <td><%= link_to "Edit", edit_entry_path(entry) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
