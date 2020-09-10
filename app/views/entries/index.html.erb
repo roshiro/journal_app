@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><%= entry.instrument.name %></h5>
+            <h5 class="card-title"><%= link_to entry.instrument.name, entry_path(entry) %></h5>
             <p class="card-text"><%= entry.open_date %></p>
             <p class="card-text"><small class="text-muted">Last updated . mins ago</small></p>
           </div>
