@@ -7,6 +7,7 @@ ruby '2.6.2'
 gem 'rails', github: 'rails/rails'
 gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
+gem 'bundler', '~> 2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
