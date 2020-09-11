@@ -11,3 +11,27 @@ body {
 h1, h2, h3, h4 {
   color: #4B384C;
 }
+
+h4.cross:before {
+  content: "";
+  display: block;
+  border-top: solid 1px grey;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+h4.cross {
+  position: relative;
+  font-size: 1.2rem;
+
+  span {
+    background: #f8f9fa !important;
+    color: grey;
+    padding: 0 15px 0 0;
+    position: relative;
+    z-index: 5;
+  }
+}
