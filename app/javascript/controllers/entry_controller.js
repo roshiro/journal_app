@@ -26,6 +26,7 @@ export default class extends Controller {
     var self = this
 
     addEventListener("trix-change", function(event) {
+      console.log('change')
       self.convertUrlsToImagesAndUpdateStateUrlCounter()
     })
   }
