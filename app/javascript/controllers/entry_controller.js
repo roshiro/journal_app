@@ -19,7 +19,10 @@ export default class extends Controller {
   }
 
   setupDropdownComponents() {
-    const choices = new Choices('.entry-choices')
+    const choices = new Choices('.entry-choices', { classNames: {
+      containerOuter: 'choices col-10 p-0 form-control',
+      containerInner: 'choices__inner pb-0'
+    }})
   }
 
   watchTrixEditor() {

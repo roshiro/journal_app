@@ -14,7 +14,7 @@
 
     <div class="form-group row">
       <%= form.label :instrument_id, class: 'col-2 col-form-label'  %>
-      <%= select_tag "entry[instrument_id]", options_from_collection_for_select(@instruments, "id", "name", entry.instrument_id), html: {class: 'entry-choices col-10'} %>
+      <%= select_tag "entry[instrument_id]", options_from_collection_for_select(@instruments, "id", "name", entry.instrument_id), class: 'entry-choices col-10' %>
     </div>
 
     <div class="form-group row">
@@ -29,19 +29,22 @@
 
     <div class="form-group row">
       <%= form.label :strategy_id, class: 'col-2 col-form-label' %>
-      <%= select_tag "entry[strategy_id]", options_from_collection_for_select(@strategies, "id", "name"), class: 'date-field col-10' %>
+      <%= select_tag "entry[strategy_id]", options_from_collection_for_select(@strategies, "id", "name"), class: 'col-10 form-control' %>
     </div>
 
     <div class="form-group row">
       <%= form.label :setup_id, class: 'col-2 col-form-label' %>
-      <%= select_tag "entry[setup_id]", options_from_collection_for_select(@setups, "id", "name"), class: 'date-field col-10' %>
+      <%= select_tag "entry[setup_id]", options_from_collection_for_select(@setups, "id", "name"), class: 'col-10 form-control' %>
     </div>
 
     <div class="form-group row">
       <%= form.label :risk_in_amount, class: 'col-2 col-form-label' %>
-      <%= form.text_field :risk_in_amount, class: 'date-field col-10' %>
+      <%= form.text_field :risk_in_amount, class: 'col-10 form-control' %>
     </div>
 
+    <div class="form-group row">
+      <%= form.label 'Embed TradigView screenshots', class: 'col-2 col-form-label' %>
+    </div>
 
     <div class="field">
       <%= form.hidden_field :content, id: "entry-content" %>

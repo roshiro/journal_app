@@ -6,4 +6,11 @@
   .choices__inner, .date-field[readonly] {
     background-color: white;
   }
+
+  .choices__inner {
+    width: 100%;
+    padding: 3.5px 7.5px 0;
+    min-height: 35px;
+    border: none;
+  }
 }

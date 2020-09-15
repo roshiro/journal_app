@@ -1,0 +1,20 @@
+  <table class="table table-borderless bg-white shadow-sm">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Symbol</th>
+        <th scope="col">Open Date</th>
+        <th scope="col">Close Date</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @closed_entries.each do |entry| %>
+        <tr>
+          <th scope="row"><%= entry.instrument.name %></th>
+          <td><%= entry.open_date %></td>
+          <td><%= entry.close_date %></td>
+          <td><%= link_to "Edit", edit_entry_path(entry) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

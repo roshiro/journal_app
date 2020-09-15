@@ -1,0 +1,20 @@
+  <% @open_entries.each do |entry| %>
+    <div class="col mb-4">
+      <div class="card shadow-sm">
+        <%= link_to edit_entry_path(entry) do %>
+          <img src="<%= entry.image_urls_extracted_from_content&.first %>" class="card-img">
+        <% end %>
+        <div class="card-body">
+          <section class="mb-2">
+            <h5 class="card-title d-inline-block"><%= entry.instrument.name %></h5>
+            <div class="float-right"><%= short_date_format entry.open_date %></div>
+          </section>
+          <p class="card-text text-muted"><span class="font-italic">Strategy:</span> <%= entry.strategy.name %></p>
+          <p class="card-text text-muted"><span class="font-italic">Entry Type:</span> <%= entry.setup.name %></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated: <%= short_date_format entry.updated_at %></small>
+        </div>
+      </div>
+    </div>
+  <% end %>

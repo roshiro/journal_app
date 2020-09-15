@@ -14,50 +14,12 @@
 </div>
 
 <div class="row row-cols-3 row-cols-md-3 mt-3">
-  <% @open_entries.each do |entry| %>
-    <div class="col mb-4">
-      <div class="card shadow-sm">
-        <%= link_to edit_entry_path(entry) do %>
-          <img src="<%= entry.image_urls_extracted_from_content&.first %>" class="card-img">
-        <% end %>
-        <div class="card-body">
-          <section class="mb-2">
-            <h5 class="card-title d-inline-block"><%= entry.instrument.name %></h5>
-            <div class="float-right"><%= short_date_format entry.open_date %></div>
-          </section>
-          <p class="card-text text-muted"><span class="font-italic">Strategy:</span> <%= entry.strategy.name %></p>
-          <p class="card-text text-muted"><span class="font-italic">Entry Type:</span> <%= entry.setup.name %></p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated: <%= short_date_format entry.updated_at %></small>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render partial: 'open_entries' %>
 </div>
 
 <br>
 
 <h4 class="cross"><span>CLOSED TRADES</span></h4>
-
-<table class="table table-borderless bg-white shadow-sm mt-3">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">Symbol</th>
-      <th scope="col">Open Date</th>
-      <th scope="col">Close Date</th>
-      <th scope="col">Edit</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @closed_entries.each do |entry| %>
-      <tr>
-        <th scope="row"><%= entry.instrument.name %></th>
-        <td><%= entry.open_date %></td>
-        <td><%= entry.close_date %></td>
-        <td><%= link_to "Edit", edit_entry_path(entry) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="mt-3">
+  <%= render partial: 'closed_entries' %>
+</div>
