@@ -1,9 +1,11 @@
-<div class="visual-outer-editor">
-  <div class="visual-editor">
-    <h1>Edit Trade</h1>
+<div class="entries edit">
+  <h1>Edit Trade</h1>
+  <div class="visual-outer-editor">
+    <div class="visual-editor p-4 bg-white shadow-sm rounded">
 
-    <%= render 'form', entry: @entry %>
+      <%= render 'form', entry: @entry %>
 
-    <%= link_to 'Back', entries_path %>
+      <%= link_to 'Back', entries_path %>
+    </div>
   </div>
 </div>
