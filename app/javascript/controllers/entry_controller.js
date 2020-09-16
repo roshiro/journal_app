@@ -6,7 +6,6 @@ export default class extends Controller {
   connect() {
     this.setupDateComponents()
     this.setupDropdownComponents()
-    this.watchTrixEditor()
   }
 
   setupDateComponents() {
@@ -23,44 +22,5 @@ export default class extends Controller {
       containerOuter: 'choices col-10 p-0 form-control',
       containerInner: 'choices__inner pb-0'
     }})
-  }
-
-  watchTrixEditor() {
-    var self = this
-
-    addEventListener("trix-change", function(event) {
-      console.log('change')
-      self.convertUrlsToImagesAndUpdateStateUrlCounter()
-    })
-  }
-
-  urlsInText(text) {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    return text.match(urlRegex) || []
-  }
-
-  convertUrlsToImagesAndUpdateStateUrlCounter() {
-    var element = document.querySelector("trix-editor")
-    var urlsAddedToText = this.urlsInText(element.value.replaceAll("&nbsp;", " ").replaceAll("\<br\>", " "))
-    if(urlsAddedToText.length > this.data.get('urlCounterInText')) {
-      this.convertImageUrlsToImageTags()
-    }
-    this.data.set('urlCounterInText', urlsAddedToText.length)
-  }
-
-  convertImageUrlsToImageTags() {
-    var linkedText = Autolinker.link(document.querySelector("trix-editor").value, this.autoLinkerOptions())
-    document.querySelector("trix-editor").value = linkedText
-  }
-
-  autoLinkerOptions() {
-    return {
-      replaceFn : function(match) {
-        switch(match.getType()) {
-          case 'url':
-            return `<img src="${match.getAnchorHref()}"/>`
-        }
-      }
-    }
   }
 }
