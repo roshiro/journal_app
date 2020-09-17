@@ -1,11 +1,21 @@
 var Trix = require("trix");
 
 var trixEnhancements = {
-  buttonAttachTradingView: function() {
+  setupEmbedTradingViewImagesButton: function() {
+    /* insert the button visual in the default toolbar */
+    addEventListener("trix-initialize", function(event) {
+      event.target.toolbarElement.querySelector("[data-trix-button-group=file-tools]").insertAdjacentHTML("beforeend", trixEnhancements._buttonAttachTradingView())
+      event.target.toolbarElement.querySelector(".trix-dialogs").insertAdjacentHTML("beforeend", trixEnhancements._dialogTradingView())
+      trixEnhancements._attachEventToLinkButton()
+      trixEnhancements._attachEventToAttachLinkButon()
+    });
+  },
+
+  _buttonAttachTradingView: function() {
     return '<button type="button" id="attach-tradingview-link" class="trix-button icon-attach-tradingview" title="Attach TradingView screenshot" tabindex="-1">Embeed TradingView image</button>';
   },
 
-  dialogTradingView: function() {
+  _dialogTradingView: function() {
     return '<div id="dialog-tv" class="trix-dialog trix-dialog--link trix-active" data-trix-dialog="href" data-trix-dialog-attribute="href" >\
               <div class="trix-dialog__link-fields">\
                 <input type="url" id="tv-url" name="href" class="trix-input trix-input--dialog" placeholder="Enter a TradingView URL…" aria-label="URL" required="" data-trix-input="">\
@@ -16,7 +26,7 @@ var trixEnhancements = {
             </div>';
   },
 
-  attachEventToLinkButton: function() {
+  _attachEventToLinkButton: function() {
     document.getElementById('button-tvlink').addEventListener('click', function(event) {
       var tvUrl = document.getElementById('tv-url').value;
       var attachment = new Trix.Attachment({ content: `<img src="${tvUrl}" />` })
@@ -25,7 +35,7 @@ var trixEnhancements = {
     })
   },
 
-  attachEventToAttachLinkButon: function() {
+  _attachEventToAttachLinkButon: function() {
     document.getElementById('attach-tradingview-link').addEventListener('click', function(event) {
       var dialogElement = document.getElementById('dialog-tv')
       dialogElement.toggleAttribute('data-trix-active')
@@ -35,11 +45,5 @@ var trixEnhancements = {
 };
 
 (function() {
-  /* insert the button visual in the default toolbar */
-  addEventListener("trix-initialize", function(event) {
-    event.target.toolbarElement.querySelector("[data-trix-button-group=file-tools]").insertAdjacentHTML("beforeend", trixEnhancements.buttonAttachTradingView())
-    event.target.toolbarElement.querySelector(".trix-dialogs").insertAdjacentHTML("beforeend", trixEnhancements.dialogTradingView())
-    trixEnhancements.attachEventToLinkButton()
-    trixEnhancements.attachEventToAttachLinkButon()
-  });
+  trixEnhancements.setupEmbedTradingViewImagesButton()
 })();
