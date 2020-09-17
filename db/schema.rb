@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_124707) do
+ActiveRecord::Schema.define(version: 2020_09_17_144825) do
 
   create_table "entries", force: :cascade do |t|
     t.string "title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_124707) do
     t.integer "strategy_id", null: false
     t.integer "trade_number"
     t.decimal "pl"
+    t.decimal "risk_in_r"
     t.decimal "result_in_r"
     t.boolean "setup_quality"
     t.boolean "followed_entry_plan"

@@ -18,6 +18,16 @@
     </div>
 
     <div class="form-group row">
+      <%= form.label :trade_direction, class: 'col-2 col-form-label'  %>
+      <div class="col-10 pt-1 pl-0">
+        <%= form.label :trade_direction, "Long"  %>
+        <%= form.radio_button :trade_direction, "long", :checked => true %>
+        <%= form.label :trade_direction, "Short", class: "ml-5" %>
+        <%= form.radio_button :trade_direction, "short" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
       <%= form.label :open_date, class: 'col-2 col-form-label' %>
       <%= form.text_field :open_date, class: 'date-field col-10' %>
     </div>
@@ -38,8 +48,32 @@
     </div>
 
     <div class="form-group row">
+      <%= form.label :tags, class: 'col-2 col-form-label' %>
+      <%= form.text_field :tags, class: 'date-field col-10' %>
+    </div>
+
+    <hr>
+
+    <div class="form-group row">
       <%= form.label :risk_in_amount, class: 'col-2 col-form-label' %>
       <%= form.text_field :risk_in_amount, class: 'col-10 form-control' %>
+    </div>
+
+    <div class="form-group row">
+      <%= form.label :result_in_amount, class: 'col-2 col-form-label' %>
+      <%= form.text_field :result_in_amount, class: 'col-10 form-control' %>
+    </div>
+
+    <hr>
+
+    <div class="form-group row">
+      <%= form.label :risk_in_r, class: 'col-2 col-form-label' %>
+      <%= form.text_field :risk_in_r, class: 'col-10 form-control' %>
+    </div>
+
+    <div class="form-group row">
+      <%= form.label :result_in_r, class: 'col-2 col-form-label' %>
+      <%= form.text_field :result_in_r, class: 'col-10 form-control' %>
     </div>
 
     <div class="field">

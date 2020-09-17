@@ -19,7 +19,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @entry = Entry.new
+    @entry = Entry.new(open_date: DateTime.now, risk_in_r: 1)
   end
 
   # GET /entries/1/edit
