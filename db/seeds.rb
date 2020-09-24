@@ -1,10 +1,15 @@
 User.create(name: 'Bob',email: 'admin@example.com', password: '12341234', password_confirmation: '12341234')
 
 s1 = Strategy.create(name: 'Trade Continuation', description: 'Multi-timeframe analysis for trade continuation')
+s2 = Strategy.create(name: 'Counter Trend', description: 'Multi-timeframe analysis for counter trend trade')
 
-Setup.create(name: 'Daily wave', strategy: s1, description: 'Opportunity shown in daily TF')
-Setup.create(name: 'H4 wave', strategy: s1, description: 'Opportunity shown in H4 TF')
-Setup.create(name: 'H1 wave', strategy: s1, description: 'Opportunity shown in H1 TF')
+Setup.create(name: 'Weekly trend', strategy: s1, description: 'Opportunity shown in weekly TF')
+Setup.create(name: 'Daily trend', strategy: s1, description: 'Opportunity shown in daily TF')
+Setup.create(name: 'H4 trend', strategy: s1, description: 'Opportunity shown in H4 TF')
+Setup.create(name: 'H1 trend', strategy: s1, description: 'Opportunity shown in H1 TF')
+
+Setup.create(name: 'Weekly TF', strategy: s2, description: 'Opportunity shown in weekly TF')
+Setup.create(name: 'Daily TF', strategy: s2, description: 'Opportunity shown in daily TF')
 
 Instrument.create(name: 'EURUSD', description: 'Euro vs US Dollar')
 Instrument.create(name: 'GBPUSD', description: 'Great Britain Pound vs US Dollar')
@@ -13,12 +18,14 @@ Instrument.create(name: 'USDCHF', description: 'US Dollar vs Swiss Franc')
 Instrument.create(name: 'USDCAD', description: 'US Dollar vs Canadian')
 Instrument.create(name: 'AUDUSD', description: 'Australian vs US Dollar')
 Instrument.create(name: 'NZDUSD', description: 'New Zealand Dollar vs US Dollar')
+
 Instrument.create(name: 'EURJPY', description: 'Euro vs Japanese Yen')
 Instrument.create(name: 'EURCHF', description: 'Euro vs Swiss Franc')
 Instrument.create(name: 'EURGBP', description: 'Euro vs Great Britain Pound')
 Instrument.create(name: 'AUDCAD', description: 'Australian Dollar vs Canadian Dollar')
 Instrument.create(name: 'AUDCHF', description: 'Australian Dollar vs Swiss Franc')
 Instrument.create(name: 'AUDJPY', description: 'Australian Dollar vs Japanise Yen')
+Instrument.create(name: 'AUDNZD', description: 'Australian Dollar vs New Zealand Dollar')
 Instrument.create(name: 'CADCHF', description: 'Canadian Dollar vs Swiss Franc')
 Instrument.create(name: 'CADJPY', description: 'Canadian Dollar vs Japanise Yen')
 Instrument.create(name: 'CHFJPY', description: 'Swiss Franc vs Japanise Yen')
@@ -108,3 +115,4 @@ Instrument.create(name: 'SGDJPY', description: 'Singapore Dollar vs Japanese Yen
 Instrument.create(name: 'SEKJPY', description: 'Sweden Kronor vs Japanese Yen')
 Instrument.create(name: 'ZARJPY', description: 'South Africa Rand vs Japanese Yen')
 Instrument.create(name: 'USDINR', description: 'US Dollar vs India Rupee')
+Instrument.create(name: 'XAUUSD', description: 'Gold vs US Dollar')

@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 2020_09_17_144825) do
     t.integer "strategy_id", null: false
     t.integer "trade_number"
     t.decimal "pl"
-    t.decimal "risk_in_r"
     t.decimal "result_in_r"
     t.boolean "setup_quality"
     t.boolean "followed_entry_plan"
     t.boolean "followed_management_plan"
     t.string "tags"
     t.string "trade_direction"
+    t.decimal "risk_in_r"
     t.index ["setup_id"], name: "index_entries_on_setup_id"
     t.index ["strategy_id"], name: "index_entries_on_strategy_id"
   end
