@@ -32,7 +32,7 @@ class EntriesController < ApplicationController
     @entry = Entry.create(entry_params)
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to edit_entry_path(@entry), notice: 'Entry was successfully created.' }
+        format.html { redirect_to entries_url, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new }
